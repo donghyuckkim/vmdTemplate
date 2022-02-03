@@ -1,0 +1,20 @@
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile*
+.dockerignore
+
+# IDE - VSCode
+.vscode
+
+# dev compiled output
+node_modules
+dist
+npm-debug.log
+logs
+
+# ETC
+.eslintrc.js
+.prettierrc
