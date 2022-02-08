@@ -13,14 +13,14 @@ export class UsersController {
   @ApiOperation({ summary: '유저 조회 API', description: '유저를 조회한다.' })
   async findOne(@Param('id') id: string) {
     // return this.usersService.findOne(+id);
-    return this.usersService.getUser(+id)
+    return this.usersService.getUser(id);
   }
 
-  @Post()
-  @ApiOperation({ summary: '유저 조회 API', description: 'DTO 방식으로 유저를 조회한다.' })
-  findOneByDTO(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.getUserByDTO(createUserDto);
-  }
+  // @Post()
+  // @ApiOperation({ summary: '유저 조회 API', description: 'DTO 방식으로 유저를 조회한다.' })
+  // findOneByDTO(@Body() createUserDto: CreateUserDto) {
+  //   return this.usersService.getUserByDTO(createUserDto);
+  // }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {

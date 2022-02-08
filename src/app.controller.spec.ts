@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { Logger } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
+// 단위 테스트
 describe('AppController', () => {
   let appController: AppController;
   let config: ConfigService;

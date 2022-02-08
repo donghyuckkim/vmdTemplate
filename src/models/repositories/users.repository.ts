@@ -3,6 +3,7 @@ import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
 import { getSqljsManager, getConnection, getManager, Connection } from "typeorm";
 import { InjectConnection } from '@nestjs/typeorm';
+import { userInfo } from 'os';
 
 @Injectable()
 @Catch()
@@ -12,22 +13,19 @@ export class UsersRepository {
     private connection: Connection,
   ) {}
 
-  async selectUserById(id: number) {
-
+  async selectUserById(id: string) {
     const rs = await this.connection.query(`
-      SELECT
-          EMPLOYEE_ID 
-          ,FIRST_NAME 
-          ,LAST_NAME 
-          ,HIRE_DATE
-          ,DEPARTMENT_ID 
-      FROM
-          EMPLOYEES
-      WHERE 1=1
-          AND EMPLOYEE_ID = :0
+      select
+          user_id
+          ,user_type
+          ,password
+      from
+          vmd_users
+      where 
+          1=1
+          and user_id = ?
     `, [id]);
 
     return rs;
   }
-
 }

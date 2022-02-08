@@ -11,13 +11,13 @@ export class UsersService {
     private usersRepository: UsersRepository
   ) {}
 
-  getUser(id: number) {
+  getUser(id: string) {
     return this.usersRepository.selectUserById(id);
   }
 
-  getUserByDTO(createUserDto: CreateUserDto) {
-    return this.usersRepository.selectUserById(createUserDto.id);
-  }
+  // getUserByDTO(createUserDto: CreateUserDto) {
+  //   return this.usersRepository.selectUserById(createUserDto.id);
+  // }
 
   create(createUserDto: CreateUserDto) {
     return 'This action adds a new user';
